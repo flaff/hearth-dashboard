@@ -2,8 +2,9 @@ import React, {ChangeEvent, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {Input} from './components/Input';
-import {Validator, ValidatorType} from './components/Validation';
+import {Validator} from './components/Validation';
 import {Translate} from './components/Translate';
+import {TestList} from './TestList';
 
 const
     NOT_EMPTY: Validator<string> = {
@@ -17,7 +18,7 @@ const
     };
 
 
-    function App() {
+function App() {
     const [name, setName] = useState('');
 
     function onInputChange(e: ChangeEvent<HTMLInputElement>) {
@@ -44,6 +45,8 @@ const
                     Learn React
                 </a>
             </header>
+
+            <TestList />
         </div>
     );
 }
