@@ -1,15 +1,16 @@
-import React, {ChangeEvent, useState} from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {Input} from './components/Input';
-import {Validator} from './components/Validation';
 import {Translate} from './components/Translate';
 import {TestList} from './TestList';
+import {Validator} from './hooks/useValidators';
+import {useInputState} from './hooks/useInputState';
 
 const
     NOT_EMPTY: Validator<string> = {
         validate: (value: string) => !!value.length,
-        message: () => (<Translate i18nKey={'notEmpty'}/>)
+        message: () => (<div><Translate i18nKey={'notEmpty'}/></div>)
     },
 
     ONLY_NUMBERS: Validator<string> = {
@@ -19,18 +20,18 @@ const
 
 
 function App() {
-    const [name, setName] = useState('');
-
-    function onInputChange(e: ChangeEvent<HTMLInputElement>) {
-        const value: string = e.target.value;
-        setName(value);
-    }
+    const [name, onNameChange] = useInputState('');
+    const [text, onTextChange] = useInputState('');
 
     return (
         <div className='App'>
             <header className='App-header'>
 
-                <Input value={name} onChange={onInputChange}
+                <Input value={name} onChange={onNameChange}
+                       validators={[NOT_EMPTY, ONLY_NUMBERS]}
+                />
+
+                <Input value={text} onChange={onTextChange}
                        validators={[NOT_EMPTY, ONLY_NUMBERS]}
                 />
 
