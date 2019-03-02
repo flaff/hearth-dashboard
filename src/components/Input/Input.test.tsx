@@ -1,12 +1,14 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import {render} from 'react-testing-library';
 
 import {Input} from './Input';
 
 it('should pass value prop to input element', () => {
-    const
-        component = shallow(<Input value={'test string'} />),
-        input = component.find('input');
+    const {getByLabelText, rerender} = render(<Input label={'test input'} value={''} readOnly />);
+    const input = getByLabelText('test input') as HTMLInputElement;
 
-    expect(input.prop('value')).toBe('test string');
+    expect(input.value).toBe('');
+
+    rerender(<Input label={'test input'} value={'test string'} readOnly />);
+    expect(input.value).toBe('test string');
 });
