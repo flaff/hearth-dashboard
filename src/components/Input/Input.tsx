@@ -2,25 +2,26 @@ import React from 'react';
 import {ValidationMessage} from '../Validation';
 import {useValidators, Validator} from '../../hooks/useValidators';
 import classNames from 'classnames';
+import styles from './Input.module.css';
 
 type HTMLInputElementProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
-type InputProps = HTMLInputElementProps & {
+type Props = {
+    className?: string;
     validators?: Array<Validator<string>>,
     value: string,
-    inputClassName?: string,
     label?: string
-};
+} & HTMLInputElementProps;
 
-export function Input(props: InputProps) {
-    const {label, validators, className, inputClassName, ...htmlProps} = props;
+export function Input(props: Props) {
+    const {label, value, validators, className, ...inputProps} = props;
 
     const thrownValidator = useValidators(validators || [], props.value);
 
     return (
-        <div className={className}>
+        <div className={classNames(className, styles.input)}>
             <label htmlFor={label}>{label}</label>
-            <input {...htmlProps} id={label} className={classNames(inputClassName, {'error': !!thrownValidator})} />
+            <input {...inputProps} name={label} value={value} className={classNames({'error': !!thrownValidator})} />
             <ValidationMessage validator={thrownValidator} />
         </div>
     );

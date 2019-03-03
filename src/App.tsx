@@ -27,12 +27,14 @@ function App() {
         <div className='App'>
             <header className='App-header'>
 
-                <Input value={name} onChange={onNameChange}
-                       validators={[NOT_EMPTY, ONLY_NUMBERS]}
+                <Input value={name} validators={[NOT_EMPTY, ONLY_NUMBERS]}
+                       onChange={onNameChange}
                 />
 
-                <Input value={text} onChange={onTextChange}
-                       validators={[NOT_EMPTY, ONLY_NUMBERS]}
+                <Input
+                    label={'hello'}
+                    value={text} validators={[NOT_EMPTY, ONLY_NUMBERS]}
+                    onChange={onNameChange}
                 />
 
                 <img src={logo} className='App-logo' alt='logo'/>
@@ -47,7 +49,7 @@ function App() {
                 </a>
             </header>
 
-            <TestList />
+            <TestList/>
         </div>
     );
 }

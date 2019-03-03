@@ -1,0 +1,4 @@
+.message:global(.error) {
+    background: crimson;
+    font-size: 12px;
+}
