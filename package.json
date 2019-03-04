@@ -17,19 +17,25 @@
     "@types/storybook__addon-info": "^4.1.0",
     "@types/storybook__addon-knobs": "^4.0.1",
     "@types/storybook__react": "^4.0.1",
+    "node-sass": "^4.11.0",
     "react-docgen-typescript-loader": "^3.0.1",
     "react-hooks-testing-library": "^0.3.4",
     "react-scripts": "2.1.5",
     "react-testing-library": "^6.0.0",
     "sinon": "^7.2.5",
     "storybook-addon-jsx": "^6.0.0",
-    "typescript": "3.3.3333"
+    "typescript": "^3.3.3333"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.7",
+    "@emotion/styled": "^10.0.7",
     "classnames": "^2.2.6",
+    "emotion": "^10.0.7",
+    "inter-ui": "^3.3.4",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
-    "react-use": "^5.5.4"
+    "react-use": "^5.5.4",
+    "unfetcher": "^1.1.2"
   },
   "scripts": {
     "start": "react-scripts start",

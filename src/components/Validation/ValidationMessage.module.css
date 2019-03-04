@@ -1,4 +1,5 @@
 .message:global(.error) {
-    background: crimson;
+    color: crimson;
     font-size: 12px;
+    text-align: center;
 }
