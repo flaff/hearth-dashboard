@@ -28,7 +28,7 @@ const StyledInput = styled.input({
     fontSize: pixels(18),
     padding: `0.5em`,
     borderRadius: pixels(3),
-    border: 'none'
+    border: `${pixels(1)} solid rgba(0, 0, 0, 0.3)`
 })
 
 export function Input(props: Props) {

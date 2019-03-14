@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {Input} from './components/Input';
@@ -8,6 +8,7 @@ import {Validator} from './hooks/useValidators';
 import {useInputState} from './hooks/useInputState';
 import styled from '@emotion/styled';
 import {pixels} from './styles';
+import {DelayedButton} from './components/DelayedButton';
 
 const
     NOT_EMPTY: Validator<string> = {
@@ -32,9 +33,23 @@ const Header = styled.h1`
     margin-top: 10px;
 `;
 
+const Modal = styled.div`
+margin: 30px 0;
+  font-weight: 500;
+  text-align: center;
+`;
+
+const PINK = '#e62553';
+const BLUE = '#4d7df9';
+
 function App() {
     const [name, onNameChange] = useInputState('');
     const [password, onPasswordChange] = useInputState('');
+    const [color, setColor] = useState(PINK);
+
+    function changeColor() {
+        setColor(color === PINK ? BLUE : PINK);
+    }
 
     return (
         <div className='App'>
@@ -53,6 +68,13 @@ function App() {
                     value={password} validators={[NOT_EMPTY, ONLY_NUMBERS]}
                     onChange={onPasswordChange}
                 />
+
+                <Modal>
+                    <div>Are you sure you want to remove selected records?</div>
+                    <div>This operation is irreversible.</div>
+                </Modal>
+
+                <DelayedButton label={'Remove'} color={color} onClick={changeColor} />
             </div>
 
             <TestList/>
