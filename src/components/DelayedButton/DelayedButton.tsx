@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
 import {useSteppedDelay} from './useSteppedDelay';
-import {StyledButton} from './DelayedButton.emotionStyles';
+import styles from './DelayedButton.module.scss';
 
-type HTMLButtonElementProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
+type HTMLButtonElementProps = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
 type DelayedButtonProps = {
     label: string;
     delay?: number;
@@ -13,8 +13,8 @@ type DelayedButtonProps = {
 const MAX_STEPS = 5;
 const DEFAULT_DELAY = 1333;
 
-function getBorderStepClassName(step: number) {
-    return 'border' + step * 25;
+function getBorderStepCssClass(step: number) {
+    return styles['border' + step * 25];
 }
 
 export function DelayedButton(props: DelayedButtonProps) {
@@ -23,7 +23,7 @@ export function DelayedButton(props: DelayedButtonProps) {
     const shouldBeDisabled = disabled || step !== MAX_STEPS;
 
     return (
-        <StyledButton className={classNames(getBorderStepClassName(step), className)}
-                disabled={shouldBeDisabled} {...buttonProps}>{label}</StyledButton>
+        <button className={classNames(styles.delayedButton, getBorderStepCssClass(step), className)}
+                disabled={shouldBeDisabled} {...buttonProps}>{label}</button>
     );
 }

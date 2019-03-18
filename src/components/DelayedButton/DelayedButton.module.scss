@@ -3,16 +3,18 @@
   font-weight: bold;
   text-align: center;
   letter-spacing: -0.05em;
-  font-size: 15px;
-  color: white;
-  background: #e62553;
-  border: 3px solid #e62553;
-  height: 40px;
-  width: 150px;
-  margin: 10px;
-  border-radius: 45px;
-  cursor: pointer;
+  font-size: 15px;;
+  min-width: 10em;
+  height: 2.66em;
+  border-radius: 2.66em;
   transition: 200ms border-color, 200ms background, 100ms color, 400ms transform;
+  line-height: 1.1;
+
+  color: #fff;
+  background: #e62553;
+  border: 0.13em solid #e62553;
+  margin: 0.5em;
+
 
   &[disabled] {
     background: #cbcbcb;
@@ -22,7 +24,7 @@
   }
 
   &:not([disabled]):hover {
-    transform: scale(1.025);
+    transform: translateY(-2%);
   }
 
   &.border25, &.border50, &.border75, &.border100 {

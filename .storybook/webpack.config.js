@@ -25,12 +25,12 @@ module.exports = (baseConfig, env, config) => {
                 options: {
                     presets: [['react-app', { flow: false, typescript: true }]]
                 }
-            },
-            require.resolve("react-docgen-typescript-loader"),
+            }
         ],
     });
 
     config.resolve.extensions.push(".ts", ".tsx");
+    config.plugins.push(new TSDocgenPlugin());
 
     return config;
 };

@@ -1,8 +1,5 @@
-import {useEffect} from 'react';
+import {useListener} from './useListener';
 
-export function useScroll(onScroll: (event: UIEvent) => any) {
-    useEffect(() => {
-        window.addEventListener('scroll', onScroll);
-        return () => window.removeEventListener('scroll', onScroll);
-    }, []);
+export function useScroll(onScroll: (event: UIEvent) => any, eventOptions?: any) {
+    useListener('scroll', onScroll, eventOptions);
 }
