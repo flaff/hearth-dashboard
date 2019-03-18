@@ -1,5 +1,0 @@
-.message:global(.error) {
-    color: crimson;
-    font-size: 12px;
-    text-align: center;
-}
