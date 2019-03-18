@@ -2,6 +2,7 @@
   "name": "hearth-dash",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "devDependencies": {
     "@storybook/addon-info": "^4.1.13",
     "@storybook/addon-knobs": "^4.1.13",
